@@ -1,12 +1,13 @@
 restarauntSearch.controller('RestarauntsCtrl', function RestarauntsCtrl($scope) {
   $scope.restaraunts = [
-    {name: "Pizza Heaven", location: "East Burnside", price:"Very Expensive"},
-    {name: "Burger Hell", location: "Downtown", price:"Free"}
+    {name: "Pizza Heaven", type:"italian", location: "East Burnside", price:"Very Expensive"},
+    {name: "Burger Hell", type: "Fastfood", location: "Downtown", price:"Free"}
   ];
 
   $scope.addRestaraunt = function() {
-    $scope.restaraunts.push({ name: $scope.restarauntName, location: $scope.restarauntLocation, price: $scope.restarauntPrice });
+    $scope.restaraunts.push({ name: $scope.restarauntName, type: $scope.restarauntType, location: $scope.restarauntLocation, price: $scope.restarauntPrice });
     $scope.restarauntName = null;
+    $scope.restarauntType = null; 
     $scope.restarauntLocation = null;
     $scope.restarauntPrice = null;
   };

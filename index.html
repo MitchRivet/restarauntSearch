@@ -34,7 +34,8 @@
                 </span>
 
                     <ul>
-                    <span ng-click="editing = true" ng-hide="editing"><li> {{ item.location }}</span>,
+                      <span ng-click="editing = true" ng-hide="editing"><li>{{ item.type }}</span>,
+                    <span ng-click="editing = true" ng-hide="editing">{{ item.location }}</span>,
                       <span ng-click="editing = true" ng-hide="editing">  {{ item.price }} </span></li>
                     </ul>
 
@@ -42,12 +43,15 @@
                 <span class="form-group" ng-show="editing" ng-submit="editing = false">
                   <form class="form-inline" role="form">
                     <input type="text" class="form-control input-sm" ng-model="item.name" placeholder="Name" required/>
+                    <input type="text" class="form-control input-sm" ng-model="item.type" placeholder="Type of Food" required/>
+
                     <input type="text" class="form-control input-sm" ng-model="item.location" placeholder="Location" required/>
-                    <input type="text" class="form-control input-sm" ng-model="item.price" placeholder="Price" required/>
+                    <input type="text" class="form-control input-sm" ng-model="item.price" placeholder="Price Range" required/>
+
                     <button class="btn btn-default btn-sm" type="submit">Save</button>
                   </form>
                 </span>
-                
+
               </li>
             </ul>
         </div>
