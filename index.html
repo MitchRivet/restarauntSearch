@@ -1,0 +1,64 @@
+<html ng-app="restarauntSearch">
+  <head>
+    <title>Restaraunt Finder</title>
+    <script src="lib/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="js/restarauntSearch.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="container" ng-controller="RestarauntsCtrl">
+      <div class="row" ng-shoe="restaraunts.length">
+        <div class="column-md-12">
+
+          <h4>Search Restaraunt Name</h4>
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <input ng-model="query" type="text" class="form-control" placeholder="Search">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class= "column-md-12">
+          <h2 ng-show="restaraunts.length && filtered.length">Restaraunt list</h2>
+          <h2 ng-show="restaraunts.length && !filtered.length">No Results Found</h2>
+
+            <ul>
+              <li ng-repeat="item in filtered = (restaraunts | filter:query)">
+
+                <span ng-click="editing = ture" ng-hide="editing">
+                  {{ item.name }}  <a ng-click="deleteRestaraunt(item)">Delete Restaraunt</a>
+                    <ul>
+                    <li> {{ item.location }}, {{ item.price }} </li>
+                    </ul>
+                </span>
+
+                <span class="form-group" ng-show="editing" ng-submit="editing = false">
+                  <form class="form-inline" role="form">
+                    <input type="text" class="form-control input-sm" ng-model="restaraunt.name" placeholder="Name" required/>
+                    <button class="btn btn-default btn-sm" type="submit">Save</button>
+                  </form>
+                </span>
+
+              </li>
+            </ul>
+        </div>
+
+        <div class="col-md-4">
+          <form ng-submit="addRestaraunt()" class="form-inline" role="form">
+            <div class="form-group">
+              <input type="text" ng-model="restarauntName" class="form-control" placeholder="Enter Name">
+            </div>
+            <button class="btn btn-default" type="submit">Enter</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
