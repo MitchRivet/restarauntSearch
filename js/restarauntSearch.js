@@ -3,15 +3,15 @@ restarauntSearch.controller('RestarauntsCtrl', ['$scope', '$filter', function Re
   var orderBy = $filter('orderBy');
 
   $scope.restaraunts = [
-    {name: "Pizza Heaven", type:"italian", location: "East Burnside", price:"Very Expensive"},
-    {name: "Burger Hell", type: "Fastfood", location: "Downtown", price:"Free"}
+    {name: "Pizza Heaven", type:"italian", location: "East Burnside", price: 5},
+    {name: "Burger Hell", type: "Fastfood", location: "Downtown", price: 1}
   ];
 
       $scope.order = function(predicate, reverse) {
         $scope.restaraunts = orderBy($scope.restaraunts, predicate, reverse);
       };
 
-  $scope.order('-name', false); 
+  $scope.order('-name', false);
 
   $scope.addRestaraunt = function() {
     $scope.restaraunts.push({ name: $scope.restarauntName, type: $scope.restarauntType, location: $scope.restarauntLocation, price: $scope.restarauntPrice });
