@@ -5,11 +5,40 @@
     <script src="app.js"></script>
     <script src="js/restarauntSearch.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
   </head>
   <body>
 
+  <!-- /*<style type="text/css">
+  .sortorder:after {
+    content: '\25b2';
+  }
+  .sortorder.reverse:after {
+    content: '\25bc';
+  }
+</style>*/ -->
+
     <div class="container" ng-controller="RestarauntsCtrl">
       <div class="row" ng-shoe="restaraunts.length">
+
+        <div class="col-md-4">
+          <h4>Add a Restaraunt</h4>
+          <form ng-submit="addRestaraunt()" class="form-inline" role="form">
+            <div class="form-group">
+              <input type="text" ng-model="restarauntName" class="form-control" placeholder="Enter Name">
+            </div>
+
+            <div class="form-group">
+              <input type="text" ng-model="restarauntLocation" class="form-control" placeholder="Enter Location">
+            </div>
+
+            <div class="form-group">
+              <input type="text" ng-model="restarauntPrice" class="form-control" placeholder="Enter Price">
+            </div>
+            <button class="btn btn-default" type="submit">Enter</button>
+          </form>
+        </div>
+
         <div class="column-md-12">
 
           <h4>Search Restaraunt Name</h4>
@@ -21,10 +50,29 @@
         </div>
       </div>
 
+
+      <table class="restaraunt">
+        <tr>
+          <th><a href="" ng-click="reverse=false;order('name', false)">Name</a>
+            (<a href="" ng-click="order('-name',false)">^</a>)</th>
+          <th><a href="" ng-click="reverse=!reverse;order('type', reverse)">Type of Food</a></th>
+          <th><a href="" ng-click="reverse=!reverse;order('location', reverse)">Location</a></th>
+        </tr>
+
+        <tr ng-repeat="item in restaraunts">
+          <td>{{ item.name }}</td>
+          <td>{{ item.type }}</td>
+          <td>{{ item.location }}</td>
+        </tr>
+      </table>
+
       <div class="row">
         <div class= "column-md-12">
           <h2 ng-show="restaraunts.length && filtered.length">Restaraunt list</h2>
           <h2 ng-show="restaraunts.length && !filtered.length">No Results Found</h2>
+
+
+
 
             <ul>
               <li ng-repeat="item in filtered = (restaraunts | filter:query)">
@@ -56,22 +104,7 @@
             </ul>
         </div>
 
-        <div class="col-md-4">
-          <form ng-submit="addRestaraunt()" class="form-inline" role="form">
-            <div class="form-group">
-              <input type="text" ng-model="restarauntName" class="form-control" placeholder="Enter Name">
-            </div>
 
-            <div class="form-group">
-              <input type="text" ng-model="restarauntLocation" class="form-control" placeholder="Enter Location">
-            </div>
-
-            <div class="form-group">
-              <input type="text" ng-model="restarauntPrice" class="form-control" placeholder="Enter Price">
-            </div>
-            <button class="btn btn-default" type="submit">Enter</button>
-          </form>
-        </div>
 
       </div>
 
