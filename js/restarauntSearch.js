@@ -7,7 +7,7 @@ restarauntSearch.controller('RestarauntsCtrl', function RestarauntsCtrl($scope) 
   $scope.addRestaraunt = function() {
     $scope.restaraunts.push({ name: $scope.restarauntName, type: $scope.restarauntType, location: $scope.restarauntLocation, price: $scope.restarauntPrice });
     $scope.restarauntName = null;
-    $scope.restarauntType = null; 
+    $scope.restarauntType = null;
     $scope.restarauntLocation = null;
     $scope.restarauntPrice = null;
   };
