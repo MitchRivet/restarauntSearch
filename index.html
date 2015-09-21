@@ -29,20 +29,25 @@
             <ul>
               <li ng-repeat="item in filtered = (restaraunts | filter:query)">
 
-                <span ng-click="editing = ture" ng-hide="editing">
+                <span ng-click="editing = true" ng-hide="editing">
                   {{ item.name }}  <a ng-click="deleteRestaraunt(item)">Delete Restaraunt</a>
-                    <ul>
-                    <li> {{ item.location }}, {{ item.price }} </li>
-                    </ul>
                 </span>
+
+                    <ul>
+                    <span ng-click="editing = true" ng-hide="editing"><li> {{ item.location }}</span>,
+                      <span ng-click="editing = true" ng-hide="editing">  {{ item.price }} </span></li>
+                    </ul>
+
 
                 <span class="form-group" ng-show="editing" ng-submit="editing = false">
                   <form class="form-inline" role="form">
-                    <input type="text" class="form-control input-sm" ng-model="restaraunt.name" placeholder="Name" required/>
+                    <input type="text" class="form-control input-sm" ng-model="item.name" placeholder="Name" required/>
+                    <input type="text" class="form-control input-sm" ng-model="item.location" placeholder="Location" required/>
+                    <input type="text" class="form-control input-sm" ng-model="item.price" placeholder="Price" required/>
                     <button class="btn btn-default btn-sm" type="submit">Save</button>
                   </form>
                 </span>
-
+                
               </li>
             </ul>
         </div>
@@ -51,6 +56,14 @@
           <form ng-submit="addRestaraunt()" class="form-inline" role="form">
             <div class="form-group">
               <input type="text" ng-model="restarauntName" class="form-control" placeholder="Enter Name">
+            </div>
+
+            <div class="form-group">
+              <input type="text" ng-model="restarauntLocation" class="form-control" placeholder="Enter Location">
+            </div>
+
+            <div class="form-group">
+              <input type="text" ng-model="restarauntPrice" class="form-control" placeholder="Enter Price">
             </div>
             <button class="btn btn-default" type="submit">Enter</button>
           </form>

@@ -1,6 +1,7 @@
 restarauntSearch.controller('RestarauntsCtrl', function RestarauntsCtrl($scope) {
   $scope.restaraunts = [
-    {name: "Pizza Heaven", location: "East Burnside", price:"Very Expensive"}
+    {name: "Pizza Heaven", location: "East Burnside", price:"Very Expensive"},
+    {name: "Burger Hell", location: "Downtown", price:"Free"}
   ];
 
   $scope.addRestaraunt = function() {
